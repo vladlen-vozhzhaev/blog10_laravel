@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArticleController::class, 'showArticles'])->name('main');
 Route::get('/blog/{id}',  [ArticleController::class, 'showArticle']);
-Route::get('/addArticle', [ArticleController::class, 'showAddArticle'])->middleware('auth');
-Route::post('/addArticle', [ArticleController::class, 'addArticle'])->middleware('auth');
+Route::get('/addArticle', [ArticleController::class, 'showAddArticle'])->middleware('verified');
+Route::post('/addArticle', [ArticleController::class, 'addArticle'])->middleware('verified');
 Route::get('/updateArticle/{id}', [ArticleController::class, 'showUpdateArticle']);
 Route::get('/deleteArticle/{id}', [ArticleController::class, 'deleteArticle']);
 
 Route::get('/dashboard', function () {
     $articles = Article::all();
     return view('pages.cmsArticles', ['articles'=>$articles]);
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
