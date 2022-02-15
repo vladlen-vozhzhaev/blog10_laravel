@@ -24,7 +24,9 @@ Route::get('/addArticle', [ArticleController::class, 'showAddArticle'])->middlew
 Route::post('/addArticle', [ArticleController::class, 'addArticle'])->middleware('verified');
 Route::get('/updateArticle/{id}', [ArticleController::class, 'showUpdateArticle']);
 Route::get('/deleteArticle/{id}', [ArticleController::class, 'deleteArticle']);
-
+Route::get('/test', function(){
+   return 'Hello world';
+});
 Route::get('/dashboard', function () {
     $articles = Article::all();
     return view('pages.cmsArticles', ['articles'=>$articles]);
