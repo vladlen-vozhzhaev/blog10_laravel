@@ -76,7 +76,13 @@
                             <p>Пользователи</p>
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <input type="submit" value="Выход">
+                        </form>
+                    </li>
+                </ul>
             </nav>
             <!-- /.sidebar-menu -->
         </div>

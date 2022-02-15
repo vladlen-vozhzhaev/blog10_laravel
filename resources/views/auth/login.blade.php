@@ -29,7 +29,9 @@
                             <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                         </label>
                     </div>
-
+                    <div>
+                        <a href="/forgot-password">Забыли пароль?</a>
+                    </div>
                     <div class="flex items-center justify-end my-4">
                         <x-button class="ml-3 btn-primary form-control">
                             {{ __('Войти') }}
